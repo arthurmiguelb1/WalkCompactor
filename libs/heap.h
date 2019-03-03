@@ -10,7 +10,7 @@ typedef struct heap{
 
 typedef Heap* HEAP;
 
-HEAP create_heap(void** (*create_array)(int));
+HEAP create_heap(void** (*create_array_data_type)(int));
 
 int get_parent_index(int i);
 
