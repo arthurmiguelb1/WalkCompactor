@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include "libs/heap.h"
 
-typedef unsigned char UCHAR;
+typedef unsigned char BYTE;
 
 typedef struct h_tree{
-	UCHAR simbol;
+	BYTE simbol;
 	int frequency;
 	struct h_tree *left;
 	struct h_tree *right;

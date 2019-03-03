@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include "heap.h"
 
-HEAP create_heap(void** (*create_array)(int)){
+HEAP create_heap(void** (*create_array_data_type)(int)){
 	HEAP h = (HEAP) malloc(sizeof(Heap));
 	h->size = 0;
-	h->data = create_array(MAX_HEAP_SIZE);
+	h->data = create_array_data_type(MAX_HEAP_SIZE);
 	return h;
 }
 
