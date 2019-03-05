@@ -42,7 +42,6 @@ void print_bytes(Byte *b, int size){
 	printf("\n");
 }
 
-
 int main(){
 	Byte n;
 	n = clear_byte();
