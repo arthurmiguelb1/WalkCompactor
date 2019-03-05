@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include "heap.h"
 
-HEAP create_heap(void** (*create_array)(int)){
+HEAP create_heap(void** (*create_array_data_type)(int)){
 	HEAP h = (HEAP) malloc(sizeof(Heap));
 	h->size = 0;
-	h->data = create_array(MAX_HEAP_SIZE);
+	h->data = create_array_data_type(MAX_HEAP_SIZE);
 	return h;
 }
 
@@ -22,6 +22,12 @@ int get_left_index(int i){
 
 int get_right_index(int i){
 	return (i << 1) + 1;
+}
+
+
+int heap_is_empty(HEAP heap){
+	if (heap->size == 0) return 1;
+	return 0;
 }
 
 
