@@ -59,7 +59,7 @@ int *create_frequency_array(char arq[])
     {
         if (!feof(file))
         {
-            BYTE c = fgetc(file);
+            UCHAR c = fgetc(file);
             i = (int)c;
             freq[i] += 1;
         }
