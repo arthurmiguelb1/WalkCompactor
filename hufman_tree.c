@@ -74,6 +74,18 @@ int *create_frequency_array(char arq[])
     return freq;
 }
 
+void printing_frequency_array(int *array)
+{
+    int i;
+    for (i = 0; i < MAX_SIZE; i++)
+    {
+        if (array[i])
+        {
+            printf("%c %d\n", i, array[i]);
+        }
+    }
+}
+
 int main(){
 
 	return 0;
