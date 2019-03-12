@@ -54,8 +54,6 @@ int *create_frequency_array(char arq[])
 
     int *freq = (int *)calloc(MAX_SIZE, sizeof(int));
 
-    initialize_array(freq, MAX_SIZE, 0);
-
     int i;
     while (1)
     {
