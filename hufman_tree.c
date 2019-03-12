@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "libs/heap.h"
+
+#define MAX_SIZE 256
 
 typedef unsigned char UCHAR;
 
@@ -27,6 +30,15 @@ void** create_htree_array(int size){
 	return array;
 }
 
+// void initialize_array(int *array, int size, int i)
+// {
+//     if (i < size)
+//     {
+//         array[i] = 0;
+//         i += 1;
+//         initialize_array(array, size, i);
+//     }
+// }
 
 short compare_nos(void* m, void* n){
 	NODE a, b;
@@ -36,6 +48,41 @@ short compare_nos(void* m, void* n){
 	return 0;
 }
 
+int *create_frequency_array(char arq[])
+{
+    FILE *file = fopen(arq, "rb");
+
+    int *freq = (int *)calloc(MAX_SIZE, sizeof(int));
+
+    int i;
+    while (1)
+    {
+        if (!feof(file))
+        {
+            UCHAR c = fgetc(file);
+            i = (int)c;
+            freq[i] += 1;
+        }
+        else
+        {
+            break;
+        }
+    }
+
+    return freq;
+}
+
+void printing_frequency_array(int *array)
+{
+    int i;
+    for (i = 0; i < MAX_SIZE; i++)
+    {
+        if (array[i])
+        {
+            printf("%c %d\n", i, array[i]);
+        }
+    }
+}
 
 int main(){
 
