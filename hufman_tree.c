@@ -48,6 +48,31 @@ short compare_nos(void* m, void* n){
 	return 0;
 }
 
+int *create_frequency_array(char arq[])
+{
+    FILE *file = fopen(arq, "rb");
+
+    int *freq = (int *)calloc(MAX_SIZE, sizeof(int));
+
+    initialize_array(freq, MAX_SIZE, 0);
+
+    int i;
+    while (1)
+    {
+        if (!feof(file))
+        {
+            BYTE c = fgetc(file);
+            i = (int)c;
+            freq[i] += 1;
+        }
+        else
+        {
+            break;
+        }
+    }
+
+    return freq;
+}
 
 int main(){
 
