@@ -30,6 +30,15 @@ void** create_htree_array(int size){
 	return array;
 }
 
+void initialize_array(int *array, int size, int i)
+{
+    if (i < size)
+    {
+        array[i] = 0;
+        i += 1;
+        initialize_array(array, size, i);
+    }
+}
 
 short compare_nos(void* m, void* n){
 	NODE a, b;
