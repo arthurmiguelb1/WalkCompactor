@@ -8,7 +8,7 @@
 typedef unsigned char Byte;
 
 typedef struct h_tree{
-	Byte simbol;
+	Byte symbol;
 	int frequency;
 	struct h_tree *left;
 	struct h_tree *right;
@@ -90,7 +90,7 @@ NODE construct_h_tree(HEAP heap){
 		smaller1 = (NODE) dequeue(heap, compare_nodes);
 		smaller2 = (NODE) dequeue(heap, compare_nodes);
 
-		merge = create_no();
+		merge = create_node();
 		merge->left = smaller1;
 		merge->right = smaller2;
 		merge->frequency =
