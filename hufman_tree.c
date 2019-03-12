@@ -8,7 +8,7 @@
 typedef unsigned char UCHAR;
 
 typedef struct h_tree{
-	UCHAR simbol;
+	UCHAR symbol;
 	int frequency;
 	struct h_tree *left;
 	struct h_tree *right;
@@ -20,7 +20,7 @@ NODE create_no(){
 	NODE htree = (NODE) malloc(sizeof(Node));
 	htree->left = NULL;
 	htree->right = NULL;
-	int frequency = 0;
+	htree->frequency = 0;
 	return htree;
 }
 
@@ -83,6 +83,25 @@ void printing_frequency_array(int *array)
         }
     }
 }
+
+NO construct_h_tree(HEAP heap){
+	while (heap->size != 1){
+		NO smaller1, smaller2, merge;
+		smaller1 = (NO) dequeue(heap, compare_nos);
+		smaller2 = (NO) dequeue(heap, compare_nos);
+
+		merge = create_no();
+		merge->left = smaller1;
+		merge->right = smaller2;
+		merge->frequency =
+			smaller1->frequency + smaller2->frequency;
+		// verificar se eh esse simbolo que deve ser usado
+		merge->symbol = '*';
+		enqueue(heap, (void*) merge, compare_nos);
+	}
+	return (NO) dequeue(heap, compare_nos);
+}
+
 
 int main(){
 
