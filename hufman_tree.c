@@ -9,12 +9,12 @@ typedef struct h_tree{
 	int frequency;
 	struct h_tree *left;
 	struct h_tree *right;
-} No;
+} Node;
 
-typedef No* NO;
+typedef Node* NODE;
 
-NO create_no(){
-	NO htree = (NO) malloc(sizeof(No));
+NODE create_no(){
+	NODE htree = (NODE) malloc(sizeof(Node));
 	htree->left = NULL;
 	htree->right = NULL;
 	int frequency = 0;
@@ -29,9 +29,9 @@ void** create_htree_array(int size){
 
 
 short compare_nos(void* m, void* n){
-	NO a, b;
-	a = (NO) m;
-	b = (NO) n;
+	NODE a, b;
+	a = (NODE) m;
+	b = (NODE) n;
 	if (a->frequency < b->frequency) return 1;
 	return 0;
 }
