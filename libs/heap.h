@@ -18,6 +18,8 @@ int get_left_index(int i);
 
 int get_right_index(int i);
 
+int heap_is_empty(HEAP heap);
+
 void enqueue(HEAP heap, void *item,
 		short (*compare)(void*, void*));
 

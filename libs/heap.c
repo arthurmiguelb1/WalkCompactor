@@ -25,6 +25,12 @@ int get_right_index(int i){
 }
 
 
+int heap_is_empty(HEAP heap){
+	if (heap->size == 0) return 1;
+	return 0;
+}
+
+
 void enqueue(HEAP heap, void *item,
 		short (*compare)(void*, void*)){
 
