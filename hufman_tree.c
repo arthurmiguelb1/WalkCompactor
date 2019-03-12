@@ -5,10 +5,10 @@
 
 #define MAX_SIZE 256
 
-typedef unsigned char UCHAR;
+typedef unsigned char Byte;
 
 typedef struct h_tree{
-	UCHAR symbol;
+	Byte simbol;
 	int frequency;
 	struct h_tree *left;
 	struct h_tree *right;
@@ -16,7 +16,7 @@ typedef struct h_tree{
 
 typedef Node* NODE;
 
-NODE create_no(){
+NODE create_node(){
 	NODE htree = (NODE) malloc(sizeof(Node));
 	htree->left = NULL;
 	htree->right = NULL;
@@ -40,7 +40,7 @@ void** create_htree_array(int size){
 //     }
 // }
 
-short compare_nos(void* m, void* n){
+short compare_nodes(void* m, void* n){
 	NODE a, b;
 	a = (NODE) m;
 	b = (NODE) n;
@@ -59,7 +59,7 @@ int *create_frequency_array(char arq[])
     {
         if (!feof(file))
         {
-            UCHAR c = fgetc(file);
+            Byte c = fgetc(file);
             i = (int)c;
             freq[i] += 1;
         }
@@ -84,11 +84,11 @@ void printing_frequency_array(int *array)
     }
 }
 
-NO construct_h_tree(HEAP heap){
+NODE construct_h_tree(HEAP heap){
 	while (heap->size != 1){
-		NO smaller1, smaller2, merge;
-		smaller1 = (NO) dequeue(heap, compare_nos);
-		smaller2 = (NO) dequeue(heap, compare_nos);
+		NODE smaller1, smaller2, merge;
+		smaller1 = (NODE) dequeue(heap, compare_nodes);
+		smaller2 = (NODE) dequeue(heap, compare_nodes);
 
 		merge = create_no();
 		merge->left = smaller1;
@@ -97,9 +97,9 @@ NO construct_h_tree(HEAP heap){
 			smaller1->frequency + smaller2->frequency;
 		// verificar se eh esse simbolo que deve ser usado
 		merge->symbol = '*';
-		enqueue(heap, (void*) merge, compare_nos);
+		enqueue(heap, (void*) merge, compare_nodes);
 	}
-	return (NO) dequeue(heap, compare_nos);
+	return (NODE) dequeue(heap, compare_nodes);
 }
 
 
