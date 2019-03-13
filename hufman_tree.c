@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include "libs/heap.h"
 
 #define MAX_SIZE 256
