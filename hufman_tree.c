@@ -1,20 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include "hufman_tree.h"
 #include "libs/heap.h"
 
-#define MAX_SIZE 256
-
-typedef unsigned char Byte;
-
-typedef struct h_tree{
-	Byte symbol;
-	int frequency;
-	struct h_tree *left;
-	struct h_tree *right;
-} Node;
-
-typedef Node* NODE;
 
 NODE create_node(){
 	NODE htree = (NODE) malloc(sizeof(Node));
@@ -48,7 +37,7 @@ short compare_nodes(void* m, void* n){
 	return 0;
 }
 
-int *create_frequency_array(char arq[])
+int* create_frequency_array(char *arq)
 {
     FILE *file = fopen(arq, "rb");
 
@@ -102,8 +91,3 @@ NODE construct_h_tree(HEAP heap){
 	return (NODE) dequeue(heap, compare_nodes);
 }
 
-
-int main(){
-
-	return 0;
-}

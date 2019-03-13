@@ -14,20 +14,19 @@ Byte set_bit_i(Byte b, int i){
 }
 
 Byte clear_byte(){
-	Byte n;
 	return 0 << 8;
 }
 
-void print_bits(Byte b, int go_to_next_line){
+void print_bits(Byte b, int goToNextLine){
 	int i;
 	for(i = 0; i < 8; i++){
 		if (is_bit_i_set(b, i)){
-			printf("%d", 1);
+			printf("1");
 		}else{
-			printf("%d", 0);
+			printf("0");
 		}
 	}
-	if (go_to_next_line){
+	if (goToNextLine){
 		printf("\n");
 	}
 }
