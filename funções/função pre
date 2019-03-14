@@ -1,0 +1,9 @@
+void avr_pre(node *"nome")//aqui no "nome" sera o nome dado para o no na declaração
+{
+	if("nome" != NULL)
+	{
+		printf("%c", *(unsigned char*) "nome"->item);
+		avr_pre("nome"->left);//aqui ficou uma recursão no formato pre ordem [C,E,D]
+		avr_pre("nome"->rigth);
+	}
+}
